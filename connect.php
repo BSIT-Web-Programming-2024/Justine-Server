@@ -12,7 +12,7 @@
 		die("Connection Failed : ". $conn->connect_error);
 	} else {
 		$stmt = $conn->prepare("insert into contact(Name, Email, Phone, Subj, Mes) values(?, ?, ?, ?, ?)");
-		$stmt->bind_param("sssis", $Name, $Mes, $Email,  $Phone, $Subj);
+		$stmt->bind_param("ssiss", $Name, $Email, $Phone,  $Subj, $Mes);
 		$execval = $stmt->execute();    
 		echo $execval;
 		echo "Registration successfully...";
